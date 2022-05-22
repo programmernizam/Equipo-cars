@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 // import required modules
-import { Pagination } from "swiper";
+import { Pagination, Autoplay } from "swiper";
 // Slider Img
 import slider_1 from "../../assets/home_slider/slide_img_1.jpeg";
 import slider_2 from "../../assets/home_slider/slide_img_2.jpeg";
@@ -17,7 +17,11 @@ const Banner = () => {
         pagination={{
           dynamicBullets: true,
         }}
-        modules={[Pagination]}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        modules={[Pagination, Autoplay]}
         className="mySwiper"
         loop={true}
       >

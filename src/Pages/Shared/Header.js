@@ -6,7 +6,7 @@ const Header = ({children}) => {
   const menuItem = (
     <>
       <li>
-        <Link className="text-white" to={"/"}>Home</Link>
+        <Link className="text-white" to={"/home"}>Home</Link>
       </li>
       <li>
         <Link className="text-white" to={"/"}>About</Link>

@@ -1,7 +1,7 @@
 import React from "react";
-import feature_1 from "../../assets/home_feature/feature_1.jpeg";
-import feature_2 from "../../assets/home_feature/feature_2.jpeg";
-import feature_3 from "../../assets/home_feature/feature_3.jpeg";
+import feature_1 from "../../assets/home_feature/feature_1.jpg";
+import feature_2 from "../../assets/home_feature/feature_2.jpg";
+import feature_3 from "../../assets/home_feature/feature_3.jpg";
 const Feature = () => {
   return (
     <section className="p-5">
