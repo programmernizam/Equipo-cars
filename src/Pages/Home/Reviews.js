@@ -26,7 +26,7 @@ const Reviews = () => {
       >
         <div>
           {reviews.map((review) => (
-            <SwiperSlide>
+            <SwiperSlide key={review._id}>
               <div className="p-10 bg-secondary shadow">
                 <p title={review.text} className="text-white text-left">{review.text.slice(0, 200)}</p>
                 <div className="flex justify-start items-center my-5">

@@ -1,0 +1,20 @@
+[
+  {
+    "_id": 1,
+    "name": "How will you improve the performance of a React Application?",
+    "img": "https://d540vms5r2s2d.cloudfront.net/mad/uploads/mad_blog_5da72951178da1571236177.png",
+    "text": "1.Keeping component state local where necessary, 2.Memoizing React components to prevent unnecessary re-renders, 3.Code-splitting in React using dynamic import(),4.Windowing or list virtualization in React,5.Lazy loading images in React"
+  },
+  {
+    "_id": 2,
+    "name": "What are the different ways to manage a state in a React application?",
+    "img": "https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/690102/retina_1708x683_image_0-1967657e3078be54d78ccc4d57eae106-f763757d0bd43e58ff9976083b458547.png",
+    "text": "The Four Kinds of React State to Manage When we talk about state in our applications, it's important to be clear about what types of state actually matter. There are four main types of state you need to properly manage in your React apps: 1: Local state, 2: Global state 3: Server state 4: URL state"
+  },
+  {
+    "_id": 3,
+    "name": "How does prototypical inheritance work?",
+    "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--9b17TTej--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/yjxz6x93jaxk4wgmpnw5.png",
+    "text": " The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object.getPrototypeOf and Object."
+  }
+]

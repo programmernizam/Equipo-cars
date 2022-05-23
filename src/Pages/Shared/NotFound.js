@@ -1,14 +1,10 @@
 import React from "react";
-
+import notFound from "../../assets/not_found.jpg";
 const NotFound = () => {
   return (
-    <div
-      className="text-center flex justify-center items-center"
-      style={{ height: "60vh" }}
-    >
-      <div>
-        <h2 className="text-red-600 text-8xl font-bold">!404</h2>
-        <h2 className="text-6xl font-bold">Not Found</h2>
+    <div>
+      <div className="flex justify-center">
+        <img className="max-w-full max-h-screen" src={notFound} alt="" />
       </div>
     </div>
   );

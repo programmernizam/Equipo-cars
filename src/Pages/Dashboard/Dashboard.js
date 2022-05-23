@@ -16,16 +16,24 @@ const Dashboard = () => {
           <ul className="menu p-4 overflow-y-auto w-80 bg-secondary text-white">
             {/* <!-- Sidebar content here --> */}
             <li>
-              <NavLink className="my-2" to={"/dashboard"}>My Orders</NavLink>
+              <NavLink className="my-2" to={"/dashboard"}>
+                My Orders
+              </NavLink>
             </li>
             <li>
-              <NavLink className="my-2" to={"/dashboard/my_profile"}>My Profile</NavLink>
+              <NavLink className="my-2" to={"/dashboard/my_profile"}>
+                My Profile
+              </NavLink>
             </li>
             <li>
-              <NavLink className="my-2" to={"/dashboard/add_review"}>Add a review</NavLink>
+              <NavLink className="my-2" to={"/dashboard/add_review"}>
+                Add a review
+              </NavLink>
             </li>
             <li>
-              <NavLink className="my-2" to={"/dashboard/add_product"}>Add a Product</NavLink>
+              <NavLink className="my-2" to={"/dashboard/add_product"}>
+                Add a Product
+              </NavLink>
             </li>
           </ul>
         </div>

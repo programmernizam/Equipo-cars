@@ -1,7 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const HomeProduct = ({ product }) => {
-  const { name, img, text, price, minimumQuantity, quantity } = product;
+  const navigate = useNavigate();
+  const { _id, name, img, text, price, minimumQuantity, quantity } = product;
+  const navigateItems = (id) => {
+    navigate(`/item/${id}`);
+  };
   return (
     <section>
       <div className="card card-compact bg-secondary shadow-xl">
@@ -26,7 +31,12 @@ const HomeProduct = ({ product }) => {
           <h2 className="card-title">{name}</h2>
           <p title={text}>{text.slice(0, 87)}</p>
           <div className="card-actions justify-start">
-            <button className="btn btn-primary">Buy Now</button>
+            <button
+              className="btn btn-primary rounded-none"
+              onClick={() => navigateItems(_id)}
+            >
+              Buy Now
+            </button>
           </div>
         </div>
       </div>

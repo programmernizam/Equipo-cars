@@ -1,8 +1,15 @@
 import React from "react";
+import { signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import auth from "../../firebase.init";
 
 const Header = ({ children }) => {
+  const [user] = useAuthState(auth);
+  const logOut = () => {
+    signOut(auth);
+  };
   const menuItem = (
     <>
       <li>
@@ -12,18 +19,31 @@ const Header = ({ children }) => {
       </li>
       <li>
         <NavLink className="text-white" to={"/"}>
-          About
+          Portfolio
         </NavLink>
       </li>
       <li>
-        <NavLink className="text-white" to={"/dashboard"}>
-          Dashboard
+        <NavLink className="text-white" to={"/blogs"}>
+          Blogs
         </NavLink>
       </li>
+      {user && (
+        <li>
+          <NavLink className="text-white" to={"/dashboard"}>
+            Dashboard
+          </NavLink>
+        </li>
+      )}
       <li>
-        <NavLink className="text-white" to={"/"}>
-          Login
-        </NavLink>
+        {user ? (
+          <button className="text-white" onClick={logOut}>
+            SignOut
+          </button>
+        ) : (
+          <NavLink className="text-white" to={"/login"}>
+            Login
+          </NavLink>
+        )}
       </li>
     </>
   );
@@ -38,9 +58,11 @@ const Header = ({ children }) => {
               <img src={logo} alt="" />
             </div>
             <div className="flex-none lg:hidden">
-              <label htmlFor="my-drawer-2" className="btn mr-3 lg:hidden">
-                Dashboard
-              </label>
+              {user && (
+                <label htmlFor="my-drawer-2" className="btn mr-3 lg:hidden">
+                  Dashboard
+                </label>
+              )}
               <label htmlFor="my-drawer-3" className="btn btn-square btn-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
