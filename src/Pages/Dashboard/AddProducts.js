@@ -2,11 +2,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
-const AddReviews = () => {
+const AddProducts = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data, event) => {
     event.preventDefault();
-    const url = `http://localhost:5000/reviews`;
+    const url = `http://localhost:5000/parts`;
     fetch(url, {
       method: "POST",
       headers: {
@@ -16,17 +16,17 @@ const AddReviews = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        toast("Review successfully added");
+        toast("Item successfully added");
         event.target.reset();
       });
   };
   return (
     <div className="w-3/4 mx-auto">
-      <h2 className="text-2xl font-bold">Add Reviews</h2>
+      <h2 className="text-2xl font-bold">Add A Product</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           type="text"
-          placeholder="Your Name"
+          placeholder="Product Name"
           class="input input-bordered border-primary w-full max-w-lg my-5"
           {...register("name")}
           required
@@ -40,14 +40,28 @@ const AddReviews = () => {
         ></textarea>
         <input
           type="text"
-          placeholder="City"
+          placeholder="Price"
           class="input input-bordered border-primary w-full max-w-lg my-5"
-          {...register("city")}
+          {...register("price")}
+          required
+        />
+        <input
+          type="number"
+          placeholder="Minimum Quantity"
+          class="input input-bordered border-primary w-full max-w-lg my-5"
+          {...register("minimumQuantity")}
+          required
+        />
+        <input
+          type="number"
+          placeholder="Quantity"
+          class="input input-bordered border-primary w-full max-w-lg my-5"
+          {...register("quantity")}
           required
         />
         <input
           type="text"
-          placeholder="Your Image URL"
+          placeholder="Image URL"
           class="input input-bordered border-primary w-full max-w-lg my-5"
           {...register("img")}
           required
@@ -55,11 +69,11 @@ const AddReviews = () => {
         <input
           type="submit"
           className="input btn btn-primary block"
-          value="Add Review"
+          value="Add Product"
         />
       </form>
     </div>
   );
 };
 
-export default AddReviews;
+export default AddProducts;

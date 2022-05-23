@@ -1,21 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 
-const Header = ({children}) => {
+const Header = ({ children }) => {
   const menuItem = (
     <>
       <li>
-        <Link className="text-white" to={"/home"}>Home</Link>
+        <NavLink className="text-white" to={"/home"}>
+          Home
+        </NavLink>
       </li>
       <li>
-        <Link className="text-white" to={"/"}>About</Link>
+        <NavLink className="text-white" to={"/"}>
+          About
+        </NavLink>
       </li>
       <li>
-        <Link className="text-white" to={"/"}>Dashboard</Link>
+        <NavLink className="text-white" to={"/dashboard"}>
+          Dashboard
+        </NavLink>
       </li>
       <li>
-        <Link className="text-white" to={"/"}>Login</Link>
+        <NavLink className="text-white" to={"/"}>
+          Login
+        </NavLink>
       </li>
     </>
   );
@@ -30,6 +38,9 @@ const Header = ({children}) => {
               <img src={logo} alt="" />
             </div>
             <div className="flex-none lg:hidden">
+              <label htmlFor="my-drawer-2" className="btn mr-3 lg:hidden">
+                Dashboard
+              </label>
               <label htmlFor="my-drawer-3" className="btn btn-square btn-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
