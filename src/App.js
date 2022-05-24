@@ -16,6 +16,8 @@ import RequireAuth from "./Pages/Login/RequireAuth";
 import PurchaseItem from "./Pages/Products/PurchaseItem";
 import Blogs from "./Pages/Blogs/Blogs";
 import AdminRoute from "./Components/Routes/AdminRoute";
+import ManageAllOrder from "./Pages/Dashboard/ManageAllOrder";
+import ManageProducts from "./Pages/Dashboard/ManageProducts";
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
               <Route path="add_review" element={<AddReviews />} />
               <Route element={<AdminRoute />}>
                 <Route path="add_product" element={<AddProducts />} />
+                <Route path="manage_order" element={<ManageAllOrder />} />
+                <Route path="manage_product" element={<ManageProducts />} />
               </Route>
             </Route>
           </Route>

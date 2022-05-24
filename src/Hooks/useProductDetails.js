@@ -6,7 +6,7 @@ const useProductDetails = (itemId) => {
     fetch(`http://localhost:5000/parts/${itemId}`)
       .then((res) => res.json())
       .then((data) => setItem(data));
-  }, [itemId]);
+  }, [itemId, setItem]);
   return [item];
 };
 export default useProductDetails;

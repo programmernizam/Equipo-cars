@@ -35,6 +35,16 @@ const Dashboard = () => {
                 Add a Product
               </NavLink>
             </li>
+            <li>
+              <NavLink className="my-2" to={"/dashboard/manage_order"}>
+                All Orders
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="my-2" to={"/dashboard/manage_product"}>
+                Manage Products
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>
