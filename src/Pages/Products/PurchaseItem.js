@@ -2,6 +2,7 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import useProductDetails from "../../Hooks/useProductDetails";
 import Footer from "../Shared/Footer";
@@ -15,7 +16,37 @@ const PurchaseItem = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data, event) => {
+    event.preventDefault();
+    if (item.quantity > 200) {
+      const updateQuantity = item.quantity - event.target.quantity.value;
+      const url = `http://localhost:5000/parts/${itemId}`;
+      console.log(url);
+      fetch(url, {
+        method: "put",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ updateQuantity }),
+      })
+        .then((res) => res.json())
+        .then((data) => {});
+      fetch("http://localhost:5000/orders", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          toast("Item successfully added");
+          window.location.reload();
+        });
+    } else {
+      toast("Item have out of stock");
+    }
+  };
   return (
     <section>
       <div className="card lg:card-side bg-accent shadow-xl flex p-5 rounded-none">
@@ -34,10 +65,24 @@ const PurchaseItem = () => {
             </h3>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
+            <input
+              type="text"
+              className="input w-full max-w-xs rounded-none text-secondary font-bold block my-4"
+              {...register("name", { required: true })}
+              value={item?.name}
+              readOnly
+            />
+            <input
+              type="text"
+              className="input w-full max-w-xs rounded-none text-secondary font-bold block my-4"
+              {...register("img", { required: true })}
+              value={item?.img}
+              readOnly
+            />
             <div>
               <input
                 className="input w-full max-w-xs rounded-none text-secondary font-bold"
-                {...register("name", {
+                {...register("fullName", {
                   required: {
                     value: true,
                     message: "Name is required",
@@ -46,9 +91,9 @@ const PurchaseItem = () => {
                 placeholder="Full Name"
               />
               <label className="label">
-                {errors.name?.type === "required" && (
+                {errors.fullName?.type === "required" && (
                   <span className="label-text-alt text-primary font-bold">
-                    {errors.name.message}
+                    {errors.fullName.message}
                   </span>
                 )}
               </label>
@@ -57,7 +102,7 @@ const PurchaseItem = () => {
               <input
                 className="input w-full max-w-xs rounded-none text-secondary font-bold"
                 type="email"
-                {...register("emailAddress", {
+                {...register("email", {
                   required: {
                     value: true,
                     message: "Email is required",
@@ -68,11 +113,13 @@ const PurchaseItem = () => {
                   },
                 })}
                 placeholder="Email Address"
+                value={user?.email}
+                readOnly
               />
               <label className="label">
-                {errors.emailAddress?.type === "required" && (
+                {errors.email?.type === "required" && (
                   <span className="label-text-alt text-primary font-bold">
-                    {errors.emailAddress.message}
+                    {errors.email.message}
                   </span>
                 )}
                 {errors.email?.type === "pattern" && (
