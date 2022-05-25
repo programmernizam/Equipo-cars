@@ -12,22 +12,22 @@ const BusinessSummary = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <SummaryCard
           icon={<FaFlag className="text-primary text-6xl" />}
-          title={<CountUp end={100} />}
+          title={<CountUp duration={5} end={100} />}
           text={"Countries"}
         />
         <SummaryCard
           icon={<FaUsers className="text-primary text-6xl" />}
-          title={<CountUp end={1500} />}
+          title={<CountUp duration={5} end={1500} />}
           text={"Happy Clients"}
         />
         <SummaryCard
           icon={<FaShip className="text-primary text-6xl" />}
-          title={<CountUp end={10000} />}
+          title={<CountUp duration={5} end={10000} />}
           text={"Delivery Completed"}
         />
         <SummaryCard
           icon={<FaStar className="text-primary text-6xl" />}
-          title={<CountUp end={8999} />}
+          title={<CountUp duration={5} end={8999} />}
           text={"Clients Reviews"}
         />
       </div>

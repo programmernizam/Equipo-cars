@@ -9,6 +9,7 @@ const Header = ({ children }) => {
   const [user] = useAuthState(auth);
   const logOut = () => {
     signOut(auth);
+    localStorage.removeItem('accessToken')
   };
   const menuItem = (
     <>
