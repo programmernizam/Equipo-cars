@@ -3,7 +3,11 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 const AddProducts = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const onSubmit = (data, event) => {
     event.preventDefault();
     const url = `http://localhost:5000/parts`;
@@ -45,13 +49,44 @@ const AddProducts = () => {
           {...register("price")}
           required
         />
-        <input
-          type="number"
-          placeholder="Minimum Quantity"
-          class="input input-bordered border-primary w-full max-w-lg my-5"
-          {...register("minimumQuantity")}
-          required
-        />
+        <div>
+          <input
+            type="number"
+            placeholder="Minimum Quantity"
+            class="input input-bordered border-primary w-full max-w-lg my-5"
+            {...register("minimumQuantity", {
+              required: {
+                value: true,
+                message: "Quantity is required",
+              },
+              min: {
+                value: 100,
+                message: "Minimum quantity required 100",
+              },
+              max: {
+                value: 100,
+                message: "Maximum quantity required 100",
+              },
+            })}
+          />
+          <label className="label">
+            {errors.minimumQuantity?.type === "required" && (
+              <span className="label-text-alt text-primary font-bold">
+                {errors.minimumQuantity.message}
+              </span>
+            )}
+            {errors.minimumQuantity?.type === "min" && (
+              <span className="label-text-alt text-primary font-bold">
+                {errors.minimumQuantity.message}
+              </span>
+            )}
+            {errors.minimumQuantity?.type === "max" && (
+              <span className="label-text-alt text-primary font-bold">
+                {errors.minimumQuantity.message}
+              </span>
+            )}
+          </label>
+        </div>
         <input
           type="number"
           placeholder="Quantity"

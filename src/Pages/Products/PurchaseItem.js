@@ -18,6 +18,15 @@ const PurchaseItem = () => {
   } = useForm();
   const onSubmit = (data, event) => {
     event.preventDefault();
+    const orders = {
+      _id: item._id,
+      name: item.name,
+      img: item.img,
+      email: user.email,
+      fullName: event.target.fullName.value,
+      address: event.target.address.value,
+      quantity: event.target.quantity.value,
+    };
     if (item.quantity > 200) {
       const updateQuantity = item.quantity - event.target.quantity.value;
       const url = `http://localhost:5000/parts/${itemId}`;
@@ -36,10 +45,10 @@ const PurchaseItem = () => {
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(orders),
       })
         .then((res) => res.json())
-        .then((result) => {
+        .then((data) => {
           toast("Item successfully added");
           window.location.reload();
         });
@@ -65,20 +74,6 @@ const PurchaseItem = () => {
             </h3>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-              type="text"
-              className="input w-full max-w-xs rounded-none text-secondary font-bold block my-4"
-              {...register("name", { required: true })}
-              value={item?.name}
-              readOnly
-            />
-            <input
-              type="text"
-              className="input w-full max-w-xs rounded-none text-secondary font-bold block my-4"
-              {...register("img", { required: true })}
-              value={item?.img}
-              readOnly
-            />
             <div>
               <input
                 className="input w-full max-w-xs rounded-none text-secondary font-bold"
@@ -94,37 +89,6 @@ const PurchaseItem = () => {
                 {errors.fullName?.type === "required" && (
                   <span className="label-text-alt text-primary font-bold">
                     {errors.fullName.message}
-                  </span>
-                )}
-              </label>
-            </div>
-            <div>
-              <input
-                className="input w-full max-w-xs rounded-none text-secondary font-bold"
-                type="email"
-                {...register("email", {
-                  required: {
-                    value: true,
-                    message: "Email is required",
-                  },
-                  pattern: {
-                    value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                    message: "Provide a valid Email",
-                  },
-                })}
-                placeholder="Email Address"
-                value={user?.email}
-                readOnly
-              />
-              <label className="label">
-                {errors.email?.type === "required" && (
-                  <span className="label-text-alt text-primary font-bold">
-                    {errors.email.message}
-                  </span>
-                )}
-                {errors.email?.type === "pattern" && (
-                  <span className="label-text-alt text-primary font-bold">
-                    {errors.email.message}
                   </span>
                 )}
               </label>
@@ -183,7 +147,7 @@ const PurchaseItem = () => {
                     message: "Minimum quantity required upper 100",
                   },
                   max: {
-                    value: 150,
+                    value: item.quantity,
                     message: "Maximum quantity required lower 150",
                   },
                 })}
