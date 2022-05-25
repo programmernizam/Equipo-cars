@@ -45,6 +45,11 @@ const Dashboard = () => {
                 Manage Products
               </NavLink>
             </li>
+            <li>
+              <NavLink className="my-2" to={"/dashboard/make_admin"}>
+                Make Admin
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

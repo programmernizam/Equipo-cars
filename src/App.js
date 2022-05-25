@@ -18,6 +18,7 @@ import Blogs from "./Pages/Blogs/Blogs";
 import AdminRoute from "./Components/Routes/AdminRoute";
 import ManageAllOrder from "./Pages/Dashboard/ManageAllOrder";
 import ManageProducts from "./Pages/Dashboard/ManageProducts";
+import MakeAdmin from "./Pages/Dashboard/MakeAdmin";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
                 <Route path="add_product" element={<AddProducts />} />
                 <Route path="manage_order" element={<ManageAllOrder />} />
                 <Route path="manage_product" element={<ManageProducts />} />
+                <Route path="make_admin" element={<MakeAdmin />} />
               </Route>
             </Route>
           </Route>
