@@ -2,7 +2,7 @@
 
 ### BUY BEST PARTS AND TOOLS
 
-Live Link [Tech World](https://equipo-parts.web.app/).
+Live Link [EQUIPO CARS](https://equipo-parts.web.app/).
 
 ## Project Description :
 
