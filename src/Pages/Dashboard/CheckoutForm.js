@@ -13,7 +13,7 @@ const CheckoutForm = ({ orders }) => {
   const { _id, total, fullName, email } = orders;
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://calm-oasis-76291.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
