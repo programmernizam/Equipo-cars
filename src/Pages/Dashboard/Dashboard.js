@@ -26,11 +26,6 @@ const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className="my-2" to={"/dashboard/my_profile"}>
-                My Profile
-              </NavLink>
-            </li>
-            <li>
               <NavLink className="my-2" to={"/dashboard/add_review"}>
                 Add a review
               </NavLink>

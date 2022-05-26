@@ -2,7 +2,13 @@ import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import Loading from "../Shared/Loading";
+import { loadStripe } from "@stripe/stripe-js";
+import CheckoutForm from "./CheckoutForm";
+import { Elements } from "@stripe/react-stripe-js";
 
+const stripePromise = loadStripe(
+  "pk_test_51L3dloIVvYdDMgfbVD06ehHbOnJCIpU9wVn1UrfA7Wd8oVkMKbJMxNKU6dqY16Po4zidd2uygl4umfqJNCtcvpZl00POpD5Wzs"
+);
 const Payment = () => {
   const { orderId } = useParams();
   const url = `http://localhost:5000/orders/${orderId}`;
@@ -27,22 +33,26 @@ const Payment = () => {
             Hello,{orders.fullName}
           </p>
           <h2 className="card-title">{orders.name}</h2>
-          <p>
+          <h4>
             Your email: <span className="text-primary">{orders.email}</span>
-          </p>
-          <p>
+          </h4>
+          <h4>
             Total Items:{" "}
             <span className="text-primary">{orders.quantity} Pic</span>
-          </p>
+          </h4>
           <h3>
             Price:{" "}
             <span className="text-primary font-bold">
               ${orders.total.toFixed(2)}
             </span>
           </h3>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
-          </div>
+        </div>
+      </div>
+      <div className="card bg-base-100 shadow-xl my-2">
+        <div className="card-body">
+          <Elements stripe={stripePromise}>
+            <CheckoutForm orders={orders} />
+          </Elements>
         </div>
       </div>
     </div>

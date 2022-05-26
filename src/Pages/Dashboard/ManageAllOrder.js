@@ -1,8 +1,13 @@
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import useOrders from "../../Hooks/useOrders";
 
 const ManageAllOrder = () => {
-  const [orders, setOrders] = useOrders();
+  const [orders, setOrders] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/all-order")
+      .then((res) => res.json())
+      .then((data) => setOrders(data));
+  }, []);
   const handelDelete = (id) => {
     const proceed = window.confirm("Are You sure?");
     if (proceed) {
@@ -48,7 +53,12 @@ const ManageAllOrder = () => {
                 </h3>
               </div>
               <div className="card-actions justify-center">
-                <button onClick={()=>handelDelete(order._id)} className="btn btn-primary rounded-none">Remove</button>
+                <button
+                  onClick={() => handelDelete(order._id)}
+                  className="btn btn-primary rounded-none"
+                >
+                  Remove
+                </button>
               </div>
             </div>
           </div>

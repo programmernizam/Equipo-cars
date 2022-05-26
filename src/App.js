@@ -3,7 +3,6 @@ import "./App.css";
 import AddReviews from "./Pages/Dashboard/AddReviews";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyOrder from "./Pages/Dashboard/MyOrder";
-import MyProfile from "./Pages/Dashboard/MyProfile";
 import Home from "./Pages/Home/Home";
 import Header from "./Pages/Shared/Header";
 import { ToastContainer } from "react-toastify";
@@ -37,7 +36,6 @@ function App() {
             <Route path="/item/:itemId" element={<PurchaseItem />} />
             <Route path="/dashboard" element={<Dashboard />}>
               <Route index element={<MyOrder />} />
-              <Route path="my_profile" element={<MyProfile />} />
               <Route path="add_review" element={<AddReviews />} />
               <Route path="payment/:orderId" element={<Payment />} />
               <Route
