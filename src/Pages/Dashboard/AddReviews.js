@@ -6,7 +6,7 @@ const AddReviews = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data, event) => {
     event.preventDefault();
-    const url = `http://localhost:5000/reviews`;
+    const url = `https://calm-oasis-76291.herokuapp.com/reviews`;
     fetch(url, {
       method: "POST",
       headers: {

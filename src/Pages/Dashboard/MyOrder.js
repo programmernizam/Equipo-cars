@@ -11,7 +11,7 @@ const MyOrder = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/orders?email=${user.email}`, {
+      fetch(`https://calm-oasis-76291.herokuapp.com/orders?email=${user.email}`, {
         method: "GET",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -31,7 +31,7 @@ const MyOrder = () => {
   const handelDelete = (id) => {
     const proceed = window.confirm("Are You sure?");
     if (proceed) {
-      const url = `http://localhost:5000/orders/${id}`;
+      const url = `https://calm-oasis-76291.herokuapp.com/orders/${id}`;
       fetch(url, {
         method: "DELETE",
       })
