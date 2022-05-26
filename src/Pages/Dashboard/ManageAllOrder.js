@@ -22,52 +22,37 @@ const ManageAllOrder = () => {
   };
   return (
     <div>
-      <div className="overflow-x-auto">
-        <table className="table-content text-center">
-          <thead>
-            <tr>
-              <th>Image</th>
-              <th>Order Name</th>
-              <th>Order Quantity</th>
-              <th>Customer name</th>
-              <th>Email</th>
-              <th>Remove Orders</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order) => (
-              <tr key={order._id} className="hover">
-                <td>
-                  <div className="avatar">
-                    <div className="w-10 rounded-xl">
-                      <img src={order.img} alt="" />
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <p className="font-bold text-xs">{order.name}</p>
-                </td>
-                <td>
-                  <p className="font-bold text-xs">{order.quantity}</p>
-                </td>
-                <td>
-                  <p className="font-bold text-xs">{order.fullName}</p>
-                </td>
-                <td>
-                  <p className="font-bold text-xs">{order.email}</p>
-                </td>
-                <td>
-                  <button
-                    className="btn btn-primary rounded-none btn-xs"
-                    onClick={() => handelDelete(order._id)}
-                  >
-                    Remove
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 p-5">
+        {orders.map((order) => (
+          <div
+            key={order._id}
+            className="card card-compact bg-secondary shadow-xl"
+          >
+            <figure>
+              <img className="w-96" src={order.img} alt="Shoes" />
+            </figure>
+            <div className="card-body text-white text-center">
+              <h2 className="card-title  justify-center">{order.name}</h2>
+              <p>Customer: {order.fullName}</p>
+              <p>Email: {order.email}</p>
+              <div className="card-actions justify-center">
+                <h3 className="text-md font-bold bg-slate-700 p-1">
+                  Order Quantity:{" "}
+                  <span className="text-primary">{order.quantity}</span>
+                </h3>
+                <h3 className="text-md font-bold bg-slate-700 p-1">
+                  Total Price:{" "}
+                  <span className="text-primary">
+                    ${order.total.toFixed(2)}
+                  </span>
+                </h3>
+              </div>
+              <div className="card-actions justify-center">
+                <button onClick={()=>handelDelete(order._id)} className="btn btn-primary rounded-none">Remove</button>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

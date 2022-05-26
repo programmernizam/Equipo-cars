@@ -16,5 +16,17 @@
     "name": "How does prototypical inheritance work?",
     "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--9b17TTej--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/yjxz6x93jaxk4wgmpnw5.png",
     "text": " The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object.getPrototypeOf and Object."
+  },
+  {
+    "_id": 4,
+    "name": "What is a unit test? Why should write unit tests?",
+    "img": "https://ucarecdn.com/39483ff6-4269-400d-bca7-1dd059c31c02/",
+    "text": "Unit testing is a component of test-driven development (TDD), a pragmatic methodology that takes a meticulous approach to building a product by means of continual testing and revision. This testing method is also the first level of software testing, which is performed before other testing methods such as integration testing. Unit tests are typically isolated to ensure a unit does not rely on any external code or functions. Testing can be done manually but is often automated."
+  },
+  {
+    "_id": 5,
+    "name": "What is a unit test? Why should write unit tests?",
+    "img": "https://i0.wp.com/css-tricks.com/wp-content/uploads/2018/04/setState.jpg?fit=1200%2C600&ssl=1",
+    "text": "To make React work like this, developers made React similar to functional programming. The rule of thumb of functional programming is immutability. Let me explain it loud and clear. How does the unidirectional flow works? 1. states are a data store which contains the data of a component, 2. The view of a component renders based on the state, 3. When the view needs to change something on the screen, that value should be supplied from the store. 4. To make this happen, React provides setState() function which takes in an object of new states and does a compare and merge(similar to object.assign()) over the previous state and adds the new state to the state data store, 5. Whenever the data in the state store changes, react will trigger an re-render with the new state which the view consumes and shows it on the screen."
   }
 ]

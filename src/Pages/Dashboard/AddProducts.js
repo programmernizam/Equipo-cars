@@ -31,21 +31,21 @@ const AddProducts = () => {
         <input
           type="text"
           placeholder="Product Name"
-          class="input input-bordered border-primary w-full max-w-lg my-5"
+          className="input input-bordered border-primary w-full max-w-lg my-5"
           {...register("name")}
           required
         />
         <textarea
           type="text"
           placeholder="Description"
-          class="input input-bordered border-primary w-full max-w-lg my-5 h-40"
+          className="input input-bordered border-primary w-full max-w-lg my-5 h-40"
           {...register("text")}
           required
         ></textarea>
         <input
           type="text"
           placeholder="Price"
-          class="input input-bordered border-primary w-full max-w-lg my-5"
+          className="input input-bordered border-primary w-full max-w-lg my-5"
           {...register("price")}
           required
         />
@@ -53,7 +53,7 @@ const AddProducts = () => {
           <input
             type="number"
             placeholder="Minimum Quantity"
-            class="input input-bordered border-primary w-full max-w-lg my-5"
+            className="input input-bordered border-primary w-full max-w-lg my-5"
             {...register("minimumQuantity", {
               required: {
                 value: true,
@@ -90,14 +90,14 @@ const AddProducts = () => {
         <input
           type="number"
           placeholder="Quantity"
-          class="input input-bordered border-primary w-full max-w-lg my-5"
+          className="input input-bordered border-primary w-full max-w-lg my-5"
           {...register("quantity")}
           required
         />
         <input
           type="text"
           placeholder="Image URL"
-          class="input input-bordered border-primary w-full max-w-lg my-5"
+          className="input input-bordered border-primary w-full max-w-lg my-5"
           {...register("img")}
           required
         />

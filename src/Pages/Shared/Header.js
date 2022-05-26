@@ -9,7 +9,7 @@ const Header = ({ children }) => {
   const [user] = useAuthState(auth);
   const logOut = () => {
     signOut(auth);
-    localStorage.removeItem('accessToken')
+    localStorage.removeItem("accessToken");
   };
   const menuItem = (
     <>
@@ -19,7 +19,7 @@ const Header = ({ children }) => {
         </NavLink>
       </li>
       <li>
-        <NavLink className="text-white" to={"/"}>
+        <NavLink className="text-white" to={"/portfolio"}>
           Portfolio
         </NavLink>
       </li>

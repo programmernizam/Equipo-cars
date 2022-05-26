@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PublicRoute = () => {
+const Portfolio = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const PublicRoute = () => {
     );
 };
 
-export default PublicRoute;
+export default Portfolio;

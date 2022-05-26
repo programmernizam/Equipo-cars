@@ -18,14 +18,15 @@ const PurchaseItem = () => {
   } = useForm();
   const onSubmit = (data, event) => {
     event.preventDefault();
+    const price = item.price * event.target.quantity.value;
     const orders = {
-      _id: item._id,
       name: item.name,
       img: item.img,
       email: user.email,
       fullName: event.target.fullName.value,
       address: event.target.address.value,
       quantity: event.target.quantity.value,
+      total: price,
     };
     if (item.quantity > 200) {
       const updateQuantity = item.quantity - event.target.quantity.value;
@@ -147,7 +148,7 @@ const PurchaseItem = () => {
                     message: "Minimum quantity required upper 100",
                   },
                   max: {
-                    value: item.quantity,
+                    value: 150,
                     message: "Maximum quantity required lower 150",
                   },
                 })}

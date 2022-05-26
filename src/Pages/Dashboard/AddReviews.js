@@ -27,28 +27,28 @@ const AddReviews = () => {
         <input
           type="text"
           placeholder="Your Name"
-          class="input input-bordered border-primary w-full max-w-lg my-5"
+          className="input input-bordered border-primary w-full max-w-lg my-5"
           {...register("name")}
           required
         />
         <textarea
           type="text"
           placeholder="Description"
-          class="input input-bordered border-primary w-full max-w-lg my-5 h-40"
+          className="input input-bordered border-primary w-full max-w-lg my-5 h-40"
           {...register("text")}
           required
         ></textarea>
         <input
           type="text"
           placeholder="City"
-          class="input input-bordered border-primary w-full max-w-lg my-5"
+          className="input input-bordered border-primary w-full max-w-lg my-5"
           {...register("city")}
           required
         />
         <input
           type="text"
           placeholder="Your Image URL"
-          class="input input-bordered border-primary w-full max-w-lg my-5"
+          className="input input-bordered border-primary w-full max-w-lg my-5"
           {...register("img")}
           required
         />
