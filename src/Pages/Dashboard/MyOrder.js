@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
@@ -67,12 +67,28 @@ const MyOrder = () => {
                 </h3>
                 <h3 className="text-md font-bold bg-slate-700 p-1">
                   Total Price:{" "}
-                  <span className="text-primary">${order.total.toFixed(2)}</span>
+                  <span className="text-primary">
+                    ${order.total.toFixed(2)}
+                  </span>
                 </h3>
               </div>
               <div className="card-actions justify-center">
-                <button className="btn btn-success rounded-none">Pay Now</button>
-                <button onClick={()=>handelDelete(order._id)} className="btn btn-primary rounded-none">Remove</button>
+                {!order.paid && (
+                  <Link to={`/dashboard/payment/${order._id}`}>
+                    <button className="btn btn-primary rounded-none">
+                      Pay Now
+                    </button>
+                  </Link>
+                )}
+                {order.paid && (
+                  <button className="btn btn-success rounded-none">Paid</button>
+                )}
+                <button
+                  onClick={() => handelDelete(order._id)}
+                  className="btn btn-primary rounded-none"
+                >
+                  Remove
+                </button>
               </div>
             </div>
           </div>
