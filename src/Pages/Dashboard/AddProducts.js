@@ -10,7 +10,7 @@ const AddProducts = () => {
   } = useForm();
   const onSubmit = (data, event) => {
     event.preventDefault();
-    const url = `https://calm-oasis-76291.herokuapp.com/parts`;
+    const url = `http://localhost:5000/parts`;
     fetch(url, {
       method: "POST",
       headers: {
@@ -31,21 +31,21 @@ const AddProducts = () => {
         <input
           type="text"
           placeholder="Product Name"
-          className="input input-bordered border-primary w-full max-w-lg my-5"
+          className="input input-bordered border-primary w-full max-w-lg my-5 form-control"
           {...register("name")}
           required
         />
         <textarea
           type="text"
           placeholder="Description"
-          className="input input-bordered border-primary w-full max-w-lg my-5 h-40"
+          className="input input-bordered border-primary w-full max-w-lg my-5 h-40 form-control"
           {...register("text")}
           required
         ></textarea>
         <input
           type="text"
           placeholder="Price"
-          className="input input-bordered border-primary w-full max-w-lg my-5"
+          className="input input-bordered border-primary w-full max-w-lg my-5 form-control"
           {...register("price")}
           required
         />
@@ -53,7 +53,7 @@ const AddProducts = () => {
           <input
             type="number"
             placeholder="Minimum Quantity"
-            className="input input-bordered border-primary w-full max-w-lg my-5"
+            className="input input-bordered border-primary w-full max-w-lg my-5 form-control"
             {...register("minimumQuantity", {
               required: {
                 value: true,
@@ -90,14 +90,14 @@ const AddProducts = () => {
         <input
           type="number"
           placeholder="Quantity"
-          className="input input-bordered border-primary w-full max-w-lg my-5"
+          className="input input-bordered border-primary w-full max-w-lg my-5 form-control"
           {...register("quantity")}
           required
         />
         <input
           type="text"
           placeholder="Image URL"
-          className="input input-bordered border-primary w-full max-w-lg my-5"
+          className="input input-bordered border-primary w-full max-w-lg my-5 form-control"
           {...register("img")}
           required
         />

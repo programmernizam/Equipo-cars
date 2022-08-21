@@ -4,14 +4,14 @@ import { toast } from "react-toastify";
 const ManageAllOrder = () => {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch("https://calm-oasis-76291.herokuapp.com/all-order")
+    fetch("http://localhost:5000/all-order")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
   const handelDelete = (id) => {
     const proceed = window.confirm("Are You sure?");
     if (proceed) {
-      const url = `https://calm-oasis-76291.herokuapp.com/orders/${id}`;
+      const url = `http://localhost:5000/orders/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -27,7 +27,7 @@ const ManageAllOrder = () => {
   };
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 p-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5">
         {orders.map((order) => (
           <div
             key={order._id}

@@ -8,7 +8,7 @@ const MakeAdmin = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("https://calm-oasis-76291.herokuapp.com/user", {
+    fetch("http://localhost:5000/user", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -27,13 +27,18 @@ const MakeAdmin = () => {
             <tr>
               <th></th>
               <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>Role</th>
+              <th>Remove User</th>
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
-              <UserRow key={user._id} user={user} refetch={refetch}></UserRow>
+            {users.map((user, index) => (
+              <UserRow
+                key={user._id}
+                user={user}
+                index={index}
+                refetch={refetch}
+              ></UserRow>
             ))}
           </tbody>
         </table>

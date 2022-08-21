@@ -30,7 +30,7 @@ const PurchaseItem = () => {
     };
     if (item.quantity > 200) {
       const updateQuantity = item.quantity - event.target.quantity.value;
-      const url = `https://calm-oasis-76291.herokuapp.com/parts/${itemId}`;
+      const url = `http://localhost:5000/parts/${itemId}`;
       console.log(url);
       fetch(url, {
         method: "put",
@@ -41,7 +41,7 @@ const PurchaseItem = () => {
       })
         .then((res) => res.json())
         .then((data) => {});
-      fetch("https://calm-oasis-76291.herokuapp.com/orders", {
+      fetch("http://localhost:5000/orders", {
         method: "POST",
         headers: {
           "content-type": "application/json",

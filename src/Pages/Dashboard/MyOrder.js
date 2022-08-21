@@ -11,7 +11,7 @@ const MyOrder = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (user) {
-      fetch(`https://calm-oasis-76291.herokuapp.com/orders?email=${user.email}`, {
+      fetch(`http://localhost:5000/orders?email=${user.email}`, {
         method: "GET",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -27,11 +27,11 @@ const MyOrder = () => {
         })
         .then((data) => setOrders(data));
     }
-  }, [user]);
+  }, [user, navigate]);
   const handelDelete = (id) => {
     const proceed = window.confirm("Are You sure?");
     if (proceed) {
-      const url = `https://calm-oasis-76291.herokuapp.com/orders/${id}`;
+      const url = `http://localhost:5000/orders/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -47,7 +47,10 @@ const MyOrder = () => {
   };
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 p-5">
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+       gap-5 p-5"
+      >
         {orders.map((order) => (
           <div
             key={order._id}
