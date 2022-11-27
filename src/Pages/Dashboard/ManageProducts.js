@@ -7,7 +7,7 @@ const ManageProducts = () => {
   const handelDelete = (id) => {
     const proceed = window.confirm("Are You sure?");
     if (proceed) {
-      const url = `http://localhost:5000/parts/${id}`;
+      const url = `https://equipo-cars-server.onrender.com/parts/${id}`;
       fetch(url, {
         method: "DELETE",
       })

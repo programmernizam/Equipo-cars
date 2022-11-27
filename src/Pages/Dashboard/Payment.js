@@ -1,17 +1,17 @@
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import React from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import Loading from "../Shared/Loading";
-import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
-import { Elements } from "@stripe/react-stripe-js";
 
 const stripePromise = loadStripe(
   "pk_test_51L3dloIVvYdDMgfbVD06ehHbOnJCIpU9wVn1UrfA7Wd8oVkMKbJMxNKU6dqY16Po4zidd2uygl4umfqJNCtcvpZl00POpD5Wzs"
 );
 const Payment = () => {
   const { orderId } = useParams();
-  const url = `http://localhost:5000/orders/${orderId}`;
+  const url = `https://equipo-cars-server.onrender.com/orders/${orderId}`;
   const { data: orders, isLoading } = useQuery(["orders", orderId], () =>
     fetch(url, {
       method: "GET",

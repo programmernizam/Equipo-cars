@@ -10,7 +10,7 @@ const AddProducts = () => {
   } = useForm();
   const onSubmit = (data, event) => {
     event.preventDefault();
-    const url = `http://localhost:5000/parts`;
+    const url = `https://equipo-cars-server.onrender.com/parts`;
     fetch(url, {
       method: "POST",
       headers: {

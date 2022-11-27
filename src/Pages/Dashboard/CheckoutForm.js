@@ -1,4 +1,4 @@
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 
 const CheckoutForm = ({ orders }) => {
@@ -13,7 +13,7 @@ const CheckoutForm = ({ orders }) => {
   const { _id, total, fullName, email } = orders;
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://equipo-cars-server.onrender.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",

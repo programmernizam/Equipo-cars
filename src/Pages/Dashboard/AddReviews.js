@@ -6,7 +6,7 @@ const AddReviews = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data, event) => {
     event.preventDefault();
-    const url = `http://localhost:5000/reviews`;
+    const url = `https://equipo-cars-server.onrender.com/reviews`;
     fetch(url, {
       method: "POST",
       headers: {

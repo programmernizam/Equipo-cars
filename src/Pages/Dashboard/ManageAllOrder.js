@@ -4,14 +4,14 @@ import { toast } from "react-toastify";
 const ManageAllOrder = () => {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/all-order")
+    fetch("https://equipo-cars-server.onrender.com/all-order")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
   const handelDelete = (id) => {
     const proceed = window.confirm("Are You sure?");
     if (proceed) {
-      const url = `http://localhost:5000/orders/${id}`;
+      const url = `https://equipo-cars-server.onrender.com/orders/${id}`;
       fetch(url, {
         method: "DELETE",
       })
